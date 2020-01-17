@@ -1,0 +1,31 @@
+# 10200. Overview of the graphs and their content
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dctypes: <http://purl.org/dc/dcmitype/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT DISTINCT ?graph ?description ?homepage ?dateGenerated ?statements ?entities ?properties ?classes
+WHERE {
+  GRAPH ?g {
+    OPTIONAL {
+      ?dataset a dctypes:Dataset ;
+        dct:description ?description ;
+        foaf:page ?homepage .
+      ?version dct:isVersionOf ?dataset ;
+        dcat:distribution ?graph .
+    }
+    ?graph a void:Dataset ;
+      void:triples ?statements ;
+      void:entities ?entities ;
+      void:properties ?properties .
+    OPTIONAL {
+      ?graph dct:issued ?dateGenerated .
+    }
+    ?graph void:classPartition [
+      void:class rdfs:Class ;
+      void:distinctSubjects ?classes
+    ] .
+  }
+} ORDER BY DESC(?statements)

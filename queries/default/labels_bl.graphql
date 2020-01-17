@@ -1,0 +1,10 @@
+# 10000. All BioLink labels
+{
+  label
+}
+
+{
+  "@context": {
+    "label": { "@id": "https://w3id.org/biolink/vocab/label" }
+  }
+}

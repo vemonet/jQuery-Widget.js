@@ -11,7 +11,7 @@ RUN cd ${dir} && npm install --unsafe-perm
 RUN cd ${dir} && cp settings.json /tmp && cp -r queries /tmp/queries/
 
 # Expose the default port
-EXPOSE 3000
+EXPOSE 8080
 
 # Run base binary
 WORKDIR ${dir}
