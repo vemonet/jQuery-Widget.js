@@ -6,7 +6,7 @@
   "datasources": [
     {
       "name": "Bio2RDF",
-      "url": "https://bio2rdf.org/sparql/"
+      "url": "https://bio2rdf.org/sparql"
     },
     {
       "name": "NCATS Red KG",
