@@ -26,20 +26,20 @@ instructs the worker (`ldf-client-worker.js`) to evaluate queries
 by sending messages,
 and the worker sends results back.
 
-### _(Optional)_ Running in a Docker container
+### Running in a Docker container
 
-If you want to rapidly deploy this widget as a microservice, you can build a [Docker](https://www.docker.com/) container as follows:
+Configure your widget by editing the [settings.json](https://github.com/comunica/jQuery-Widget.js/blob/master/settings.json) file.
+Next, create a [queries directory](https://github.com/comunica/jQuery-Widget.js/tree/master/queries) in which you should insert the queries that will be present by default in the widget.
+
+Build the [Docker](https://www.docker.com/) container as follows:
 
 ```bash
-$ docker build -t comunica-sparql-widget .
+docker build -t comunica-sparql-widget .
 ```
-
-Next, configure your widget by creating a `settings.json` file in your working directory based on the [example](https://github.com/comunica/jQuery-Widget.js/blob/master/settings.json).
-Next, create a `queries` directory in which you should insert the queries that will be present by default in the widget, as is done [here](https://github.com/comunica/jQuery-Widget.js/tree/master/queries).
 
 After that, you can run your newly created container by mounting your current folder to the Docker container:
 ```bash
-$ docker run -p 3000:3000 -it --rm -v $(pwd)/:/tmp/ comunica-sparql-widget
+docker run -p 8080:80 -it --rm comunica-sparql-widget
 ```
 
 ## License
