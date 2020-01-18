@@ -19,7 +19,7 @@ RUN npm run production
 
 
 ## Deploy the website using nginx
-FROM nginx:1.14.1-alpine
+FROM nginx:1.17.7-alpine
 
 # Copy our default nginx config
 # COPY nginx.conf /etc/nginx/conf.d/default.conf
