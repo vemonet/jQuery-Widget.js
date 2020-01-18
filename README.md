@@ -45,7 +45,7 @@ docker run -p 8080:80 --name comunica -it --rm comunica-sparql-widget
 Settings and queries can be passed at runtime:
 
 ```bash
-# Compile the file in queries folder and settings.json to queries.json
+# Compile queries.json from  settings.json and the files in the queries folder
 ./queries-to-json
 
 # Provide the compiled queries.json at runtime
