@@ -129,6 +129,6 @@ module.exports = [
     },
     plugins: [
       new StringReplacePlugin(),
-    ],
+    ]
   },
 ];

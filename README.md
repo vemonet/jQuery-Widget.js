@@ -39,10 +39,21 @@ docker build -t comunica-sparql-widget .
 
 After that, you can run your newly created container by mounting your current folder to the Docker container:
 ```bash
-docker run -p 8080:80 -it --rm comunica-sparql-widget
+docker run -p 8080:80 --name comunica -it --rm comunica-sparql-widget
+```
+
+Settings and queries can be passed at runtime:
+
+```bash
+# Compile the file in queries folder and settings.json
+./queries-to-json
+
+# Provide the compiled queries.json at runtime
+docker run -v $(pwd)/queries.json:/usr/share/nginx/html/queries.json -p 8080:80 --name comunica -it --rm comunica-sparql-widget
 ```
 
 ## License
+
 The Linked Data Fragments jQuery Widget was originally written by [Ruben Verborgh](https://ruben.verborgh.org/)
 and ported for Comunica SPARQL by [Ruben Taelman](http://rubensworks.net/).
 

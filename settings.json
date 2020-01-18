@@ -5,7 +5,7 @@
   },
   "datasources": [
     {
-      "name": "Bio2RDF",
+      "name": "Bio2RDF official",
       "url": "https://bio2rdf.org/sparql"
     },
     {
